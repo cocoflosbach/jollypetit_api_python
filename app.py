@@ -35,6 +35,11 @@ def get_data():
     ]
     return jsonify(data)
 
+@app.route('/products', methods=['GET'])
+def get_products():
+    """Function to get and return list of all data"""
+    return jsonify(products)
+
 @app.route('/api/products/<int: item_id', methods=['GET'])
 def get_one_product(product_id):
     """Function to get and return only only one product"""
