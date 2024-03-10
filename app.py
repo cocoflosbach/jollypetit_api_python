@@ -35,3 +35,10 @@ def get_data():
     ]
     return jsonify(data)
 
+@app.route('/api/products/<int: item_id', methods=['GET'])
+def get_one_product(product_id):
+    """Function to get and return only only one product"""
+    product = next((product for product in products if product['id'] == product_id), None)
+    if product:
+        return jsonify(product)
+    return jsonify({"Message": "Item not found"}), 404
