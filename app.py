@@ -73,3 +73,20 @@ def get_one_product(product_id):
     if product:
         return jsonify(product)
     return jsonify({"Message": "Item not found"}), 404
+
+@app.route('/users', methods = ['GET'])
+def get_users():
+    """Function to get and return the list of all users"""
+    return jsonify(users)
+
+@app.route('/users/<int: item_id', methods = ['GET'])
+def get_one_user(user_id):
+    """Function to get and return only one product"""
+    user = next((user for user in users if user['id'] == user_id), None)
+    if user:
+        return jsonify(user)
+    return jsonify({"Message": "User not found"}), 404
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
