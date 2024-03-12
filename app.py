@@ -66,9 +66,9 @@ def get_products():
     """Function to get and return list of all data"""
     return jsonify(products)
 
-@app.route('/api/products/<int: item_id', methods=['GET'])
+@app.route('/products/<int: product_id', methods=['GET'])
 def get_one_product(product_id):
-    """Function to get and return only only one product"""
+    """Function to get and return only one product"""
     product = next((product for product in products if product['id'] == product_id), None)
     if product:
         return jsonify(product)
