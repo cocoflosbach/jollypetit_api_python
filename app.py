@@ -62,6 +62,15 @@ users = [
 ]
 
 @app.route('/products', methods=['GET'])
+@app.route('/')
+def welcome_page():
+    """Function for the home page"""
+    message = """
+Welcome to the home page for the Jolly Petite store api. 
+To navigate the api, use the /products or /users routes.
+"""
+    return message
+
 def get_products():
     """Function to get and return list of all data"""
     return jsonify(products)
