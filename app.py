@@ -61,7 +61,6 @@ users = [
     },
 ]
 
-@app.route('/products', methods=['GET'])
 @app.route('/')
 def welcome_page():
     """Function for the home page"""
@@ -71,27 +70,28 @@ To navigate the api, use the /products or /users routes.
 """
     return message
 
+@app.route('/products')
 def get_products():
     """Function to get and return list of all data"""
     return jsonify(products)
 
-@app.route('/products/<int: product_id>', methods=['GET'])
+@app.route('/products/<int:product_id>')
 def get_one_product(product_id):
     """Function to get and return only one product"""
-    product = next((product for product in products if product['id'] == product_id), None)
+    product = next((product for product in products if product['product_id'] == product_id), None)
     if product:
         return jsonify(product)
     return jsonify({"Message": "Item not found"}), 404
 
-@app.route('/users', methods = ['GET'])
+@app.route('/users')
 def get_users():
     """Function to get and return the list of all users"""
     return jsonify(users)
 
-@app.route('/users/<int: user_id', methods = ['GET'])
+@app.route('/users/<int:user_id>')
 def get_one_user(user_id):
     """Function to get and return only one product"""
-    user = next((user for user in users if user['id'] == user_id), None)
+    user = next((user for user in users if user['user_id'] == user_id), None)
     if user:
         return jsonify(user)
     return jsonify({"Message": "User not found"}), 404
