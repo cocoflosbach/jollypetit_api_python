@@ -119,6 +119,11 @@ def get_one_user(user_id):
         return jsonify(user)
     return jsonify({"Message": "User not found"}), 404
 
+@app.route('/notes')
+def get_notes():
+    """Function to get user to do notes"""
+    return jsonify(notes)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
