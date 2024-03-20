@@ -124,6 +124,15 @@ def get_notes():
     """Function to get user to do notes"""
     return jsonify(notes)
 
+@app.route('/notes/<int:note_id>')
+def get_one_note(note_id):
+    """Function to get one note by note id"""
+    note = next((note for note in notes if note['note_id'] == note_id), None)
+    if note:
+        return jsonify(note)
+    return jsonify({"Message": "Item not found"}), 404
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
