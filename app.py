@@ -60,6 +60,29 @@ users = [
         "Birthday": "07-09-1991"
     },
 ]
+notes = [
+    {
+        "Username": "babygworl",
+        "user_id": 1,
+        "Password": "bbg123",
+        "Email": "baby@ever.com",
+        "Birthday": "02-02-1994"
+    },
+    {
+        "Username": "rabbitbasket",
+        "user_id": 2,
+        "Password": "rabby",
+        "Email": "rabbit@ever.com",
+        "Birthday": "05-07-1992"
+    },
+    {
+        "Username": "cakeworld",
+        "user_id": 3,
+        "Password": "cakey",
+        "Email": "cakebabe@ever.com",
+        "Birthday": "07-09-1991"
+    },
+]
 
 @app.route('/')
 def welcome_page():
